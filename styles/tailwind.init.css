@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+
+.font-bangla {
+    font-family: "Hind Siliguri", sans-serif;
+}
+
+.my-container{
+    width: 100%;
+    max-width: 70rem;
+    margin-inline:clamp(1rem,3vw,2rem);
+}

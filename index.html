@@ -33,7 +33,139 @@
 <body>
 
 
-<h1>hello world</h1>
+    <!-- navbar start -->
+    <nav class="w-full flex z-50 sticky top-0 ">
+
+        <div class="my-container">
+            <div class="navbar  bg-base-100  ">
+                <div class="navbar-start">
+                    <div class="dropdown ">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+
+                        <ul tabindex="-1"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow ">
+                            <li>
+                                <a href="" class="btn btn-outline btn-primary border-0"><i
+                                        class="fa-solid fa-circle-question"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="" class="btn btn-outline btn-primary border-0"><i
+                                        class="fa-solid fa-book-open"></i>Learn</a>
+                            </li>
+                            <li>
+                                <a href="" class="btn btn-outline btn-primary border-0"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <a class=" flex text-center justify-center gap-1 items-center text-xl ml-3">
+                        <span class="text-xl font-semibold ">English</span>
+                        <img src="./assets/logo.png" alt="">
+                        <span class="font-bangla text-xl font-semibold">জানালা</span>
+                    </a>
+
+
+                </div>
+
+                <!-- <div class="pl-30 md:pl-0">
+                    <button id="theme-toggle"><i
+                            class="text-[clamp(2rem,5vw,2.75rem)] justify-end font-bold -rotate-30 cursor-pointer fa-regular fa-moon"></i>
+                    </button>
+
+                </div> -->
+
+                <div class="navbar-end hidden md:flex">
+                    <ul class="menu menu-horizontal space-x-2">
+                        <li>
+                            <a href="" class="btn btn-outline btn-info border-2"><i
+                                    class="fa-solid fa-circle-question"></i>FAQ</a>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-outline btn-info border-2"><i
+                                    class="fa-solid fa-book-open"></i>Learn</a>
+                        </li>
+                        <li>
+                            <a href="" class="btn btn-outline btn-info border-2"><i
+                                    class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </nav>
+
+    <header class=" mb-[clamp(4rem,8vw,12.5rem)]">
+        <!-- banner section start-->
+        <section class="my-container">
+            <div class="my-container flex justify-between items-center gap-7 mt-13 flex-col-reverse sm:flex-row">
+
+                <div class="max-w-[clamp(20rem,90vw,45.4375rem)] w-full space-y-4 text-center sm:text-left">
+                    <h2 class="font-bold text-4xl">
+                        <span class="text-[#00bcff]">English</span> is Easy!!
+                    </h2>
+                    <p class="font-bangla">
+                        আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা <br> আপনার দক্ষতা বাড়াতে চান,
+                        আমাদের
+                        Interactive Lessons আপনাকে নিয়ে <br> যাবে অন্য একটি Level এ
+                    </p>
+
+                    <fieldset
+                        class="fieldset mx-auto sm:mx-0 rounded-box max-w-[clamp(16rem,90vw,20rem)] shadow-lg space-y-3">
+                        <input type="text" class="input" placeholder="Enter Your Name" />
+                        <input type="password" class="input" placeholder="Password" />
+                        <button class="btn btn-info"">Get Started</button>
+                    </fieldset>
+
+                </div>
+
+                <div class=" hero-img max-w-[clamp(20rem,90vw,45.875rem)] ">
+                    <img class=" w-full" src="./assets/hero-student.png" alt="">
+                </div>
+
+
+
+            </div>
+
+        </section>
+
+    </header>
+    <!-- navbar end -->
+
+    <!-- main section start -->
+    <main>
+
+        <section class="my-container">
+            <h2 class="font-bold text-4xl text-center">
+                <span class="text-[#00bcff]">Let's</span> Learn Vocabularies
+            </h2>
+
+            <!-- main display first time load data all button-->
+            <div id="display-all-level" class="container mt-7 flex gap-4 justify-center flex-wrap">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <script src="./javaScript/index.js"></script>
 </body>
 
 </html>

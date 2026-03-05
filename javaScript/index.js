@@ -1,4 +1,11 @@
 
+const showSynonyms = (array) => {
+    let synonyms = array.map((elem) => `<span class="bg-sky-200 py-1 px-2 rounded font-medium">${elem}</span>`)
+    return synonyms.join(" ");
+
+}
+
+
 // API all data get and access 
 const allLevelApiData = () => {
 
@@ -36,9 +43,7 @@ const displayModalDataShow = (cardDetailsModal) => {
         <p class="font-bangla font-medium mb-2">সমার্থক শব্দ গুলো</p>
 
         <div class="flex gap-6">
-            <span class="bg-sky-200 py-1 px-2 rounded font-medium">enthusiastic</span>
-            <span class="bg-sky-200 py-1 px-2 rounded font-medium">enthusiastic</span>
-            <span class="bg-sky-200 py-1 px-2 rounded font-medium">enthusiastic</span>
+               ${showSynonyms(cardDetailsModal.synonyms)}
         </div>
     </div>
 

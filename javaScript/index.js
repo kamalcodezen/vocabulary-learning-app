@@ -1,5 +1,5 @@
-// API all data get and access 
 
+// API all data get and access 
 const allLevelApiData = () => {
 
     const url = "https://openapi.programming-hero.com/api/levels/all";
@@ -14,6 +14,7 @@ allLevelApiData();
 
 
 
+
 // akhane button ke click korlam akhane aslo ase api theke data niye nicher function er bhetore  notun kore card toiri kore screeen a dekhachch
 const displayLevelBtn = async (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
@@ -23,18 +24,32 @@ const displayLevelBtn = async (id) => {
 }
 
 const displayAllLevelCard = (cards) => {
-
     const allCardContainer = document.getElementById("all-card-container");
     allCardContainer.innerHTML = "";
 
+    // jokhon card er bhetore kihcu thkabe na tokhn ei div ta show korbe
+    if (cards.length === 0) {
+        allCardContainer.innerHTML = `
+       <div class="col-span-full text-center pb-10 ">
+                    <img class="mx-auto" src="./assets/alert-error.png" alt="">
+                    <p class="font-bangla font-semibold text-gray-500">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।
+                    </p>
+                    <h2 class="text-4xl font-bangla font-semibold">নেক্সট Lesson এ যান</h2>
+                </div>
+    
+    `;
+        return;
+    }
+
     cards.forEach((card) => {
+
         const div = document.createElement("div");
         div.innerHTML = `
           <div class="p-4  bg-white text-center space-y-4 border border-sky-200 rounded-lg shadow h-full flex flex-col justify-between">
                     <div class="space-y-3">
                         <h2 class="text-2xl font-semibold ">${card.word}</h2>
                         <p class="font-medium opacity-80">Meaning/Pronunciation</p>
-                        <p class="font-bangla text-2xl font-semibold">${card.meaning}/${card.pronunciation}</p>
+                        <p class="font-bangla text-2xl font-semibold">${card.meaning ? card.meaning : "অর্থ পাওয়া যায়নি "}/${card.pronunciation ? card.pronunciation : "pronunciation পাওয়া যায়নি"}</p>
                     </div>
 
                     <div class="flex  justify-between">

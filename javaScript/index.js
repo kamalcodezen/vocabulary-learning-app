@@ -15,6 +15,14 @@ const allLevelApiData = () => {
 allLevelApiData();
 
 
+// sound function 
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-EN"; // English
+    window.speechSynthesis.speak(utterance);
+}
+
+
 // modal synonyms show
 const showSynonyms = (array) => {
     let synonyms = array.map((elem) => `<span class="bg-sky-200 py-1 px-2 rounded font-medium">${elem}</span>`)
@@ -111,7 +119,7 @@ const displayAllLevelCard = (cards) => {
                             <i class="fa-solid fa-circle-info hover:scale-110 transition-all duration-300"></i>
                         </button>
 
-                        <button
+                        <button onclick="pronounceWord('${card.word}')"
                             class="bg-sky-100 w-10 h-10 rounded-full cursor-pointer flex justify-center items-center">
                             <i class="fa-solid fa-volume-high hover:scale-110 transition-all duration-300"></i>
                         </button>
@@ -148,4 +156,21 @@ const displayLevelData = (buttons) => {
 }
 
 
+// search input Vocabulary
+const vocabularyBtn = document.getElementById("search-btn")
+    .addEventListener("click", () => {
 
+        const searchInput = document.getElementById("input-search")
+        const inputValue = searchInput.value;
+
+        fetch("https://openapi.programming-hero.com/api/words/all")
+            .then((res) => res.json())
+            .then((data) => {
+                const allWord = data.data;
+
+                const searchWord = allWord.filter((word) => word.word.toLowerCase().includes(inputValue));
+
+                displayAllLevelCard(searchWord);
+            });
+
+    });

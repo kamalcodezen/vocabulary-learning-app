@@ -1,14 +1,9 @@
 
-const showSynonyms = (array) => {
-    let synonyms = array.map((elem) => `<span class="bg-sky-200 py-1 px-2 rounded font-medium">${elem}</span>`)
-    return synonyms.join(" ");
 
-}
 
 
 // API all data get and access 
 const allLevelApiData = () => {
-
     const url = "https://openapi.programming-hero.com/api/levels/all";
 
     fetch(url)
@@ -19,6 +14,13 @@ const allLevelApiData = () => {
 
 allLevelApiData();
 
+
+// modal synonyms show
+const showSynonyms = (array) => {
+    let synonyms = array.map((elem) => `<span class="bg-sky-200 py-1 px-2 rounded font-medium">${elem}</span>`)
+    return synonyms.join(" ");
+
+}
 
 // info button click korlam akhane aslo id ta tarpor api ke hit korlam api amake data dilo sta function er through te ami show korabo
 const showModal = async (id) => {
@@ -52,8 +54,11 @@ const displayModalDataShow = (cardDetailsModal) => {
 
 }
 
-
-
+// active btn class remove select btn
+const removeActiveBtn = () => {
+    const activeBtn = document.querySelectorAll(".active-btn");
+    activeBtn.forEach((btn) => btn.classList.remove("bg-sky-500", "text-white"));
+}
 
 
 // akhane button ke click korlam akhane aslo ase api theke data niye nicher function er bhetore  notun kore card toiri kore screeen a dekhachch
@@ -61,7 +66,13 @@ const displayLevelBtn = async (id) => {
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     const res = await fetch(url)
     const data = await res.json()
+    // button click active / select
+    const levelBtnActive = document.getElementById(`level-btn-${id}`)
+    removeActiveBtn()
+    levelBtnActive.classList.add("bg-sky-500", "text-white");
+
     displayAllLevelCard(data.data);
+
 }
 
 const displayAllLevelCard = (cards) => {
@@ -129,11 +140,12 @@ const displayLevelData = (buttons) => {
 
         const divBtn = document.createElement("div")
         divBtn.innerHTML = `
-        <button onClick=displayLevelBtn(${btn.level_no}) class="btn btn-outline btn-info">${btn.lessonName}</button>
+        <button id="level-btn-${btn.level_no}" onclick="displayLevelBtn(${btn.level_no})" class="active-btn  btn btn-outline btn-info">${btn.lessonName}</button>
         `;
         displayAllLevelContainer.append(divBtn);
     });
 
 }
+
 
 

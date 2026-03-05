@@ -13,6 +13,42 @@ const allLevelApiData = () => {
 allLevelApiData();
 
 
+// info button click korlam akhane aslo id ta tarpor api ke hit korlam api amake data dilo sta function er through te ami show korabo
+const showModal = async (id) => {
+    const url = `https://openapi.programming-hero.com/api/word/${id}`
+    const res = await fetch(url)
+    const modalData = await res.json()
+    displayModalDataShow(modalData.data)
+}
+
+const displayModalDataShow = (cardDetailsModal) => {
+
+    const modalContainer = document.getElementById("modal_container")
+    modalContainer.innerHTML = `
+    
+    <div class="border border-sky-200 rounded-lg modal-word  p-4">
+        <h2 class="font-bangla text-2xl font-semibold mb-4">${cardDetailsModal.word} (<i
+                class="fa-solid fa-microphone-lines"></i>:${cardDetailsModal.pronunciation})</h2>
+        <h3 class="font-semibold">Meaning</h3>
+        <p class="font-bangla font-semibold mb-4">${cardDetailsModal.meaning}</p>
+        <p class="font-semibold">Example</p>
+        <p class="font-medium mb-4">${cardDetailsModal.sentence}</p>
+        <p class="font-bangla font-medium mb-2">সমার্থক শব্দ গুলো</p>
+
+        <div class="flex gap-6">
+            <span class="bg-sky-200 py-1 px-2 rounded font-medium">enthusiastic</span>
+            <span class="bg-sky-200 py-1 px-2 rounded font-medium">enthusiastic</span>
+            <span class="bg-sky-200 py-1 px-2 rounded font-medium">enthusiastic</span>
+        </div>
+    </div>
+
+    `;
+    document.getElementById("card_modal").showModal();
+
+}
+
+
+
 
 
 // akhane button ke click korlam akhane aslo ase api theke data niye nicher function er bhetore  notun kore card toiri kore screeen a dekhachch
@@ -54,7 +90,7 @@ const displayAllLevelCard = (cards) => {
 
                     <div class="flex  justify-between">
 
-                        <button
+                        <button onclick="showModal(${card.id})"
                             class="bg-sky-100 w-10 h-10 flex items-center justify-center rounded-full cursor-pointer">
                             <i class="fa-solid fa-circle-info hover:scale-110 transition-all duration-300"></i>
                         </button>

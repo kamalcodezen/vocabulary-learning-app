@@ -104,7 +104,7 @@ const displayAllLevelCard = (cards) => {
     // jokhon card er bhetore kihcu thkabe na tokhn ei div ta show korbe
     if (cards.length === 0) {
         allCardContainer.innerHTML = `
-       <div class="col-span-full text-center pb-10 ">
+       <div class="my-container col-span-full text-center pb-10 ">
                     <img class="mx-auto" src="./assets/alert-error.png" alt="">
                     <p class="font-bangla font-semibold text-gray-500">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।
                     </p>

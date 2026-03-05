@@ -14,7 +14,7 @@
 .my-container{
     width: 100%;
     max-width: 70rem;
-    margin-inline:clamp(1rem,3vw,2rem);
+    padding-inline:clamp(1rem,3vw,2rem);
     margin-inline: auto;
 }
 

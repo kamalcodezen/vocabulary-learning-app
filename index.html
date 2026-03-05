@@ -109,7 +109,7 @@
 
     </nav>
 
-    <header class=" mb-[clamp(4rem,8vw,12.5rem)]">
+    <header class="my-container mb-[clamp(4rem,8vw,12.5rem)]">
         <!-- banner section start-->
         <section class="my-container">
             <div class="my-container flex justify-between items-center gap-7 mt-13 flex-col-reverse sm:flex-row">
@@ -124,8 +124,7 @@
                         Interactive Lessons আপনাকে নিয়ে <br> যাবে অন্য একটি Level এ
                     </p>
 
-                    <fieldset
-                        class="fieldset mx-auto sm:mx-0 rounded-box max-w-[clamp(16rem,90vw,20rem)]  space-y-3">
+                    <fieldset class="fieldset mx-auto sm:mx-0 rounded-box max-w-[clamp(16rem,90vw,20rem)]  space-y-3">
                         <input type="text" class="input" placeholder="Enter Your Name" />
                         <input type="password" class="input" placeholder="Password" />
                         <button class="btn btn-info"">Get Started</button>
@@ -149,47 +148,56 @@
     <!-- main section start -->
     <main>
 
-        <section class="my-container">
+        <section class="my-container  mb-[clamp(4rem,8vw,12.5rem)]">
             <h2 class="font-bold text-4xl text-center">
                 <span class="text-[#00bcff]">Let's</span> Learn Vocabularies
             </h2>
+            <div>
 
-            <!-- main display first time load data all button-->
-            <div id="display-all-level" class="container mx-auto mb-6 mt-7 flex gap-4 justify-center flex-wrap">
+                <!-- main display first time load data all button-->
+                <div id="display-all-level" class="container mx-auto mb-6 mt-7 flex gap-4 justify-center flex-wrap">
 
-            </div>
-
-
-            <div class="join flex justify-center space-y-4">
-                <div>
-                    <label class="input validator join-item outline-none ">
-                        <input id="input-search" type="text" placeholder="Search Vocabulary" />
-                    </label>
                 </div>
-                <button id="search-btn" class="btn btn-info join-item">Join</button>
+
+                <!-- search vocabulary -->
+                <div class="join flex justify-center space-y-4">
+                    <div>
+                        <label class="input validator join-item outline-none ">
+                            <input id="input-search" type="text" placeholder="Search Vocabulary" />
+                        </label>
+                    </div>
+                    <button id="search-btn" class="btn btn-info join-item">Join</button>
+                </div>
+
+
+                <!-- spin loader -->
+                <div id="spin-container" class="my-container flex justify-center col-span-full py-20 hidden">
+                    <span class="loading loading-bars loading-xs"></span>
+                    <span class="loading loading-bars loading-sm"></span>
+                    <span class="loading loading-bars loading-md"></span>
+                    <span class="loading loading-bars loading-lg"></span>
+                    <span class="loading loading-bars loading-xl"></span>
+                </div>
+
+                <!-- all card here div -->
+                <div id="all-card-container" class="bg-base-200 p-4 rounded-lg grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+
+                    <!-- button a click korle dynamically show hocche  ei div er bhetore card gulo-->
+
+                    <!-- first time landing page data show sobsomoy ata thakbe referesh korleo ata thakbe -->
+                    <div id="lesson-select-show" class="col-span-full text-center space-y-4 py-14 bg-base-200">
+                        <p class="font-bangla font-semibold text-gray-500">আপনি এখনো কোন Lesson Select করেন নি !</p>
+                        <h2 class="text-4xl font-bangla font-semibold">একটি Lesson Select করুন।</h2>
+                    </div>
+
+                </div>
+
             </div>
+
 
         </section>
 
-        <!-- all level card section  -->
-        <section class="my-container  mb-[clamp(4rem,8vw,12.5rem)]">
 
-            <!-- all card here div -->
-            <div id="all-card-container" class="bg-base-200 p-4 rounded-lg grid grid-cols-4 gap-3">
-
-                <!-- button a click korle dynamically show hocche  ei div er bhetore card gulo-->
-
-
-                <!-- first time landing page data show sobsomoy ata thakbe referesh korleo ata thakbe -->
-                <div id="lesson-select-show" class="col-span-full text-center space-y-4 py-14 bg-base-200">
-                    <p class="font-bangla font-semibold text-gray-500">আপনি এখনো কোন Lesson Select করেন নি !</p>
-                    <h2 class="text-4xl font-bangla font-semibold">একটি Lesson Select করুন।</h2>
-                </div>
-
-            </div>
-
-
-        </section>
 
 
         <!-- modal -->

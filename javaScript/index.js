@@ -3,16 +3,28 @@
 
 
 // API all data get and access 
-const allLevelApiData = () => {
-    const url = "https://openapi.programming-hero.com/api/levels/all";
+const allLevelApiData = async () => {
+    spinnerLoader(true);
 
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => displayLevelData(data.data))
+    const res = await fetch("https://openapi.programming-hero.com/api/levels/all")
+    const data = await res.json()
+    displayLevelData(data.data)
 
+    spinnerLoader(false);
 }
 
-allLevelApiData();
+
+// spinLoader function
+const spinnerLoader = (status) => {
+    if (status == true) {
+        document.getElementById("spin-container").classList.remove("hidden");
+        document.getElementById("all-card-container").classList.add("hidden");
+    } else {
+        document.getElementById("spin-container").classList.add("hidden");
+        document.getElementById("all-card-container").classList.remove("hidden");
+    }
+
+}
 
 
 // sound function 
@@ -71,6 +83,8 @@ const removeActiveBtn = () => {
 
 // akhane button ke click korlam akhane aslo ase api theke data niye nicher function er bhetore  notun kore card toiri kore screeen a dekhachch
 const displayLevelBtn = async (id) => {
+    spinnerLoader(true);
+
     const url = `https://openapi.programming-hero.com/api/level/${id}`;
     const res = await fetch(url)
     const data = await res.json()
@@ -98,6 +112,8 @@ const displayAllLevelCard = (cards) => {
                 </div>
     
     `;
+        spinnerLoader(false);
+
         return;
     }
 
@@ -130,6 +146,8 @@ const displayAllLevelCard = (cards) => {
         
         `;
 
+        spinnerLoader(false);
+
         allCardContainer.append(div);
 
     });
@@ -155,7 +173,7 @@ const displayLevelData = (buttons) => {
 
 }
 
-
+allLevelApiData();
 // search input Vocabulary
 const vocabularyBtn = document.getElementById("search-btn")
     .addEventListener("click", () => {
@@ -171,6 +189,7 @@ const vocabularyBtn = document.getElementById("search-btn")
                 const searchWord = allWord.filter((word) => word.word.toLowerCase().includes(inputValue));
 
                 displayAllLevelCard(searchWord);
+                removeActiveBtn()
             });
 
     });
